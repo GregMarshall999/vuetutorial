@@ -6,6 +6,11 @@
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
+        img {
+            max-width: 100px;
+            max-height: fit-content;
+        }
+        
         .box {
             padding: 100px 0;
             width: 400px;
@@ -20,9 +25,13 @@
     <h1>Hello Vue</h1>
 
     <div id="app">
+        <!--attribute binding-->
+        <a :href="url">Best website</a>
+
         <div v-if="showBooks">
             <ul>
                 <li v-for="book in books">
+                    <img :src="book.img" :alt="book.title"/>
                     <h3>{{ book.title }}</h3>
                     <p>{{ book.author }}</p>
                 </li>
