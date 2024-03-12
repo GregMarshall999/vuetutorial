@@ -21,12 +21,12 @@
 
     <div id="app">
         <div v-if="showBooks">
-            <ul>
-                <li v-for="book in books">
-                    <h3>{{ book.title }}</h3>
-                    <p>{{ book.author }}</p>
-                </li>
-            </ul>
+            <p>{{ title }} - {{ author }} - {{ age }}</p>
+
+            <button v-on:click="age++">Increase age</button>
+            <button v-on:click="age--">Decrease age</button>
+    
+            <div @click="changeTitle('OathBringer')">Change book title</div>
         </div>
 
         <button @click="toggleShowBooks">
@@ -35,6 +35,13 @@
         </button>
 
         <div v-show="showBooks">Currently showing books</div>
+
+        <br>
+        <!-- mouse events -->
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div>
     </div>
 
     <script src="app.js"></script>
