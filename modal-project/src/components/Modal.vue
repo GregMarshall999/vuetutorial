@@ -1,6 +1,7 @@
 <template>
     <div class="backdrop">
         <div class="modal">
+            <h1>Modal Title</h1>
             <p>Modal content</p>
         </div>
     </div>
@@ -21,5 +22,15 @@
         margin: 100px auto;
         background: white;
         border-radius: 10px;
+    }
+
+    .modal h1 {
+        color: #03cfb4;
+        border: none;
+        padding: 0;
+    }
+
+    .modal p {
+        font-style: normal;
     }
 </style>
