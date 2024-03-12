@@ -4,9 +4,21 @@ const app = Vue.createApp({
             url: 'https://en-recherche-active.com',
             showBooks: true,
             books: [
-                { title: 'Name of the wind',        author: 'patrick rothfuss', img: 'assets/babushka.jpg' },
-                { title: 'The way of the kings',    author: 'brandon sanderson', img: 'assets/eggman.jpg' },
-                { title: 'The final empire',        author: 'brandon sanderson', img: 'assets/stonks.jpg' }
+                {   title: 'Gun Granny', 
+                    author: 'patrick rothfuss', 
+                    img: 'assets/babushka.jpg', 
+                    isFav: true
+                },
+                {   title: 'Egg-sama',    
+                    author: 'brandon sanderson', 
+                    img: 'assets/eggman.jpg', 
+                    isFav: false
+                },
+                {   title: 'The final Stonk',        
+                    author: 'brandon sanderson', 
+                    img: 'assets/stonks.jpg', 
+                    isFav: true
+                }
             ]
         }
     }, 
