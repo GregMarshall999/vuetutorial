@@ -9,15 +9,17 @@
 
 <script>
 export default {
-    data() {
-        return  {
-            jobs: [
-                { title: 'UX Designer', id: 1, details: 'Lorem' },
-                { title: 'Web Designer', id: 2, details: 'Lorem' },
-                { title: 'Vue Designer', id: 3, details: 'Lorem' },
-            ]
-        }
-    }
+  data() {
+      return  {
+          jobs: []
+      }
+  }, 
+  mounted() {
+    fetch('http://localhost:3000/jobs')
+      .then(response => response.json())
+      .then(data => this.jobs = data)
+      .catch(err => console.log(err.message));
+  }
 }
 </script>
 

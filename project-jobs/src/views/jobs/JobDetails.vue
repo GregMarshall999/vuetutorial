@@ -1,16 +1,23 @@
 <template>
-  <h1>Job Details Page</h1>
+  <h1>{{ job.title }}</h1>
   <p>The job id is {{ id }}</p>
+  <p>{{ job.details }}</p>
 </template>
 
 <script>
 export default {
-    //data() {
-    //    return {
-    //        id: this.$route.params.id
-    //    }
-    //}, 
-    props: ['id']
+  data() {
+    return {
+      job: null
+    }
+  },
+  props: ['id'], 
+  mounted() {
+    fetch('http://localhost:3000/jobs/' + this.id)
+      .then(response => response.json())
+      .then(data => this.job = data)
+      .catch(err => console.log(err.message));
+  }
 }
 </script>
 
