@@ -8,19 +8,24 @@
     <button @click="age++">Age +1</button>
 
     <input type="text" v-model="name"/>-->
-      <h1>Home</h1>
+      <!--<h1>Home</h1>
       <h2>Refs</h2>
       <p>{{ playerOne.name }} - {{ playerOne.age }}</p>
       <button @click="updatePlayerOne">Update Player One</button>
 
       <h2>Reactive</h2>
       <p>{{ playerTwo.name }} - {{ playerTwo.age }}</p>
-      <button @click="updatePlayerTwo">Update Player Two</button>
+      <button @click="updatePlayerTwo">Update Player Two</button>-->
+  
+        <h1>Home</h1>
+        <input type="text" v-model="search"/>
+        <p>Search term - {{ search }}</p>
+        <div v-for="name in matchingNames" :key="name">{{ name }}</div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 export default {
     name: "Home", 
@@ -50,6 +55,7 @@ export default {
 
       //---------------------------------------
 
+      /*
       const playerOne = ref({ name: 'Mario', age: 25 })
       const playerTwo = reactive({ name: 'Luigi', age: 24 })
 
@@ -66,6 +72,21 @@ export default {
         playerTwo, 
         updatePlayerOne, 
         updatePlayerTwo
+      }
+      */
+    
+      //---------------------------------------
+
+      const search = ref('')
+      const names = ref(['Mario', 'Luigi', 'Yoshi', 'Toad', 'Bowser', 'Koopa', 'Peach']);
+
+      const matchingNames = computed(() => {
+        return names.value.filter(name => name.includes(search.value))
+      })
+
+      return {
+        search,
+        matchingNames
       }
     }
 }
